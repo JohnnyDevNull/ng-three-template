@@ -1,5 +1,9 @@
 import * as THREE from 'three';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class EngineService {
   private canvas: HTMLCanvasElement;
   private renderer: THREE.WebGLRenderer;
