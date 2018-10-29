@@ -6,7 +6,7 @@ The project is setup to use global [SCSS](https://sass-lang.com/) only and [View
 
 Feel free to do anything you want with this template.
 
-# Three Links
+## Three Links
 
 * Three Extensions: https://github.com/Itee/three-full
 
