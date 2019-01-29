@@ -9,6 +9,7 @@ Feel free to do anything you want with this template.
 ## Three Links
 
 * Three Extensions: https://github.com/Itee/three-full
+* Three-Full Types: https://discourse.threejs.org/t/angular-threejs/2739/7
 
 ## Development server
 
