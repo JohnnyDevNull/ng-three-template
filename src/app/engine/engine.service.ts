@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EngineService {
+export class EngineService implements OnDestroy {
   private canvas: HTMLCanvasElement;
   private renderer: THREE.WebGLRenderer;
   private camera: THREE.PerspectiveCamera;
@@ -13,9 +13,19 @@ export class EngineService {
 
   private cube: THREE.Mesh;
 
-  createScene(elementId: string): void {
+  private frameId: number = null;
+
+  public constructor(private ngZone: NgZone) {}
+
+  public ngOnDestroy() {
+    if (this.frameId != null) {
+      cancelAnimationFrame(this.frameId);
+    }
+  }
+
+  createScene(canvas: ElementRef<HTMLCanvasElement>): void {
     // The first step is to get the reference of the canvas element from our HTML document
-    this.canvas = <HTMLCanvasElement>document.getElementById(elementId);
+    this.canvas = canvas.nativeElement;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -38,25 +48,29 @@ export class EngineService {
     this.light.position.z = 10;
     this.scene.add(this.light);
 
-    let geometry = new THREE.BoxGeometry(1, 1, 1);
-    let material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     this.cube = new THREE.Mesh( geometry, material );
     this.scene.add(this.cube);
 
   }
 
   animate(): void {
-    window.addEventListener('DOMContentLoaded', () => {
-      this.render();
-    });
+    // We have to run this outside angular zones,
+    // because it could trigger heavy changeDetection cycles.
+    this.ngZone.runOutsideAngular(() => {
+      window.addEventListener('DOMContentLoaded', () => {
+        this.render();
+      });
 
-    window.addEventListener('resize', () => {
-      this.resize();
+      window.addEventListener('resize', () => {
+        this.resize();
+      });
     });
   }
 
   render() {
-    requestAnimationFrame(() => {
+    this.frameId = requestAnimationFrame(() => {
       this.render();
     });
 
@@ -66,8 +80,8 @@ export class EngineService {
   }
 
   resize() {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();

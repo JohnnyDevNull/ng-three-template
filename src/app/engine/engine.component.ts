@@ -1,5 +1,5 @@
 import { EngineService } from './engine.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-engine',
@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [],
 })
 export class EngineComponent implements OnInit {
-  private canEleId = 'renderCanvas';
+
+  @ViewChild('rendererCanvas')
+  public rendererCanvas: ElementRef<HTMLCanvasElement>;
 
   constructor(private engServ: EngineService) { }
 
   ngOnInit() {
-    this.engServ.createScene(this.canEleId);
+    this.engServ.createScene(this.rendererCanvas);
     this.engServ.animate();
   }
 
