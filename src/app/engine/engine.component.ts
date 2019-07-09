@@ -1,10 +1,9 @@
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { EngineService } from './engine.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-engine',
-  templateUrl: './engine.component.html',
-  styleUrls: [],
+  templateUrl: './engine.component.html'
 })
 export class EngineComponent implements OnInit {
 
