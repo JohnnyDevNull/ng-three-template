@@ -59,9 +59,13 @@ export class EngineService implements OnDestroy {
     // We have to run this outside angular zones,
     // because it could trigger heavy changeDetection cycles.
     this.ngZone.runOutsideAngular(() => {
-      window.addEventListener('DOMContentLoaded', () => {
+      if (document.readyState !== 'loading') {
         this.render();
-      });
+      } else {
+        window.addEventListener('DOMContentLoaded', () => {
+          this.render();
+        });
+      }
 
       window.addEventListener('resize', () => {
         this.resize();
