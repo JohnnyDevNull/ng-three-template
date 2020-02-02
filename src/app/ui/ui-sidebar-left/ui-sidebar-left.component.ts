@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ui-sidebar-left',
-  templateUrl: './ui-sidebar-left.component.html',
-  styleUrls: []
+  templateUrl: './ui-sidebar-left.component.html'
 })
 export class UiSidebarLeftComponent implements OnInit {
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

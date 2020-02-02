@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ui',
-  templateUrl: './ui.component.html',
-  styleUrls: []
+  templateUrl: './ui.component.html'
 })
 export class UiComponent implements OnInit {
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

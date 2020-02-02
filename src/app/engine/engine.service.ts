@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class EngineService implements OnDestroy {
   private canvas: HTMLCanvasElement;
   private renderer: THREE.WebGLRenderer;
@@ -17,13 +15,13 @@ export class EngineService implements OnDestroy {
 
   public constructor(private ngZone: NgZone) {}
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.frameId != null) {
       cancelAnimationFrame(this.frameId);
     }
   }
 
-  createScene(canvas: ElementRef<HTMLCanvasElement>): void {
+  public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = canvas.nativeElement;
 
@@ -55,7 +53,7 @@ export class EngineService implements OnDestroy {
 
   }
 
-  animate(): void {
+  public animate(): void {
     // We have to run this outside angular zones,
     // because it could trigger heavy changeDetection cycles.
     this.ngZone.runOutsideAngular(() => {
@@ -73,7 +71,7 @@ export class EngineService implements OnDestroy {
     });
   }
 
-  render() {
+  public render(): void {
     this.frameId = requestAnimationFrame(() => {
       this.render();
     });
@@ -83,7 +81,7 @@ export class EngineService implements OnDestroy {
     this.renderer.render(this.scene, this.camera);
   }
 
-  resize() {
+  public resize(): void {
     const width = window.innerWidth;
     const height = window.innerHeight;
 

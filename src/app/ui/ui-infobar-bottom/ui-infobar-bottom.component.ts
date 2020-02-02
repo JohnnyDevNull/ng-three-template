@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ui-infobar-bottom',
-  templateUrl: './ui-infobar-bottom.component.html',
-  styleUrls: []
+  templateUrl: './ui-infobar-bottom.component.html'
 })
 export class UiInfobarBottomComponent implements OnInit {
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }
