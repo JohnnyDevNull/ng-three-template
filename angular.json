@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/dev",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -59,6 +60,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -141,5 +146,8 @@
       }
     }
   },
-  "defaultProject": "ng-three-template"
+  "defaultProject": "ng-three-template",
+  "cli": {
+    "analytics": "58212eb1-d08c-4e42-a8dd-b0fc0d26b8d1"
+  }
 }
