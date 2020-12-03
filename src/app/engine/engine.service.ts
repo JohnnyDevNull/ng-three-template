@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
+import {ElementRef, Injectable, NgZone, OnDestroy} from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class EngineService implements OnDestroy {
   private canvas: HTMLCanvasElement;
   private renderer: THREE.WebGLRenderer;
@@ -13,7 +13,8 @@ export class EngineService implements OnDestroy {
 
   private frameId: number = null;
 
-  public constructor(private ngZone: NgZone) {}
+  public constructor(private ngZone: NgZone) {
+  }
 
   public ngOnDestroy(): void {
     if (this.frameId != null) {
@@ -42,13 +43,13 @@ export class EngineService implements OnDestroy {
     this.scene.add(this.camera);
 
     // soft white light
-    this.light = new THREE.AmbientLight( 0x404040 );
+    this.light = new THREE.AmbientLight(0x404040);
     this.light.position.z = 10;
     this.scene.add(this.light);
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    this.cube = new THREE.Mesh( geometry, material );
+    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    this.cube = new THREE.Mesh(geometry, material);
     this.scene.add(this.cube);
 
   }
@@ -88,6 +89,6 @@ export class EngineService implements OnDestroy {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize( width, height );
+    this.renderer.setSize(width, height);
   }
 }

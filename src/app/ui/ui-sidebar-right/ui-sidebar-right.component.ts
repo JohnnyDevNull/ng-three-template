@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ui-sidebar-right',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UiSidebarRightComponent implements OnInit {
 
-  public constructor() { }
+  public constructor() {
+  }
 
   public ngOnInit(): void {
   }
