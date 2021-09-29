@@ -1,4 +1,6 @@
+import packageInfo from 'package.json';
+
 export const environment = {
   production: true,
-  version: require('../../package.json').version
+  version: packageInfo.version
 };
