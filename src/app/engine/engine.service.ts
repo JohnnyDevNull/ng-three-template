@@ -20,6 +20,11 @@ export class EngineService implements OnDestroy {
     if (this.frameId != null) {
       cancelAnimationFrame(this.frameId);
     }
+    if (this.renderer != null) {
+      this.renderer.dispose();
+      this.renderer = null;
+      this.canvas = null;
+    }
   }
 
   public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
