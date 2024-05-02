@@ -4,8 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/)
 and [Bootstrap](https://getbootstrap.com/) in Version 5.x
 
-The project is setup to use global [SCSS](https://sass-lang.com/) only
-and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
+The project is setup to use global [SCSS](https://sass-lang.com/) only with [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation) and [ChangeDetectionStrategy.OnPush](https://angular.io/api/core/ChangeDetectionStrategy).
 
 Feel free to do anything you want with this template.
 
