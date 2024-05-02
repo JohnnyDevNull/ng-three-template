@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic
 template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/)
-and [Bootstrap](https://getbootstrap.com/) in Version 4.x
+and [Bootstrap](https://getbootstrap.com/) in Version 5.x
 
 The project is setup to use global [SCSS](https://sass-lang.com/) only
 and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
