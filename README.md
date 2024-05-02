@@ -31,7 +31,10 @@ for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests.  
+
+**Note:** You have to choose and install your test runner you wish to use first.  
+A good decision could be the Jest runner from [@angular-builders/jest](https://github.com/just-jeb/angular-builders)
 
 ## Running end-to-end tests
 
