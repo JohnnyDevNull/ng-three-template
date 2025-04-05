@@ -1,13 +1,13 @@
 /*****************************************************
  * node_modules imports
  *****************************************************/
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@forward 'node_modules/bootstrap/scss/bootstrap.scss';
 
 /*****************************************************
  * project imports
  *****************************************************/
-@import 'variables';
-@import 'mixins';
+@use 'variables' as var;
+@use 'mixins' as mix;
 
 /*****************************************************
  * styles
@@ -21,8 +21,8 @@ html, body, app-root, app-game {
 }
 
 body {
-  background-color: $mainBgColor;
-  color: $mainTextColor;
+  background-color: var.$mainBgColor;
+  color: var.$mainTextColor;
 }
 
 .engine-wrapper {
